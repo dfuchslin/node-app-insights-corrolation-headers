@@ -13,15 +13,14 @@ Using the nodejs client, we see that the `request-context` headers are not compl
 When we compare the behavior of the nodejs client and the java client, we see that the java client sends complete headers with every type of request, whereas the nodejs client is missing headers for "startup" and "scheduled" requests. We also see the outcome of this in the Application Map in Application Insights: without any "on-demand" requests, the node_client never gets connected to the node_server in the map.
 
 ## How to reproduce
-The server will output the request headers
 
 1. Get a valid instrumentationKey from Azure Application Insights where you want the telemetry to end up
-2. Run `APP_INSIGHTS_KEY=XXX-YYY-ZZZ docker compose up --build`
-3. The nodejs and java clients will make a request on startup to the server
-4. Wait a minute for the nodejs and java clients to send scheduled requests
-5. Look at the console logs for node_server and note the difference in (and lack of) headers that are being sent for each type of request.
-6. Wait a few minutes (why the painful delay Microsoft?) and check the Application Map in Application Insights. You will see that "node_client" is not connected to "node_server", however "java_client" is. <br><img src="./docs/app-insights-1.png" height="350">
-7. Run some "on-demand" requests to the nodejs client `curl http://localhost:6060/client` and after a few minutes in the app insights GUI you'll see that node_client is now connected to node_server. <br><img src="./docs/app-insights-2.png" width="350">
+1. Run `APP_INSIGHTS_KEY=XXX-YYY-ZZZ docker compose up --build`
+1. The nodejs and java clients will make a request on startup to the server
+1. Wait a minute for the nodejs and java clients to send scheduled requests
+1. Look at the console logs for node_server and note the difference in (and lack of) headers that are being sent for each type of request.
+1. Wait a few minutes (why the painful delay Microsoft?) and check the Application Map in Application Insights. You will see that "node_client" is not connected to "node_server", however "java_client" is. <br><img src="./docs/app-insights-1.png" height="350">
+1. Run some "on-demand" requests to the nodejs client `curl http://localhost:6060/client` and after a few minutes in the app insights GUI you'll see that node_client is now connected to node_server. <br><img src="./docs/app-insights-2.png" width="350">
 
 ## Results
 
