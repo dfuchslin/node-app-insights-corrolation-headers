@@ -103,8 +103,8 @@ The server will output the request headers
 3. The nodejs and java clients will make a request on startup to the server
 4. Wait a minute for the nodejs and java clients to send scheduled requests
 5. Look at the console logs for node_server and note the difference in (and lack of) headers that are being sent for each type of request.
-6. Wait a few minutes (why the painful delay Microsoft?) and check the graph in Application Insights. You will see that "node_client" is not connected to "node_server", however "java_client" is.
-7. Run some "on-demand" requests to the nodejs client `curl http://localhost:6060/client` and after a few minutes in the app insights GUI you'll see that node_client is now connected to node_server.
+6. Wait a few minutes (why the painful delay Microsoft?) and check the graph in Application Insights. You will see that "node_client" is not connected to "node_server", however "java_client" is. ![node_client is not connected to node_server](./docs/app-insights-1.png)
+7. Run some "on-demand" requests to the nodejs client `curl http://localhost:6060/client` and after a few minutes in the app insights GUI you'll see that node_client is now connected to node_server. ![node_client is connected to node_server](./docs/app-insights-2.png)
 
 ## Useful links
 https://www.npmjs.com/package/applicationinsights
