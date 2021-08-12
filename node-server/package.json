@@ -1,0 +1,20 @@
+{
+  "name": "app-insights-tracing-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "applicationinsights": "^2.1.4",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "node-schedule": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "client": "node client.js",
+    "server": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
